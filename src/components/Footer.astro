@@ -1,0 +1,15 @@
+---
+const isRoot = Astro.url.pathname === "/";
+---
+<footer class="border-t border-slate-200">
+  <div class="max-w-2xl mx-auto px-4 py-8">
+    {!isRoot && <a href="../">../</a>}
+  </div>
+  <div class="max-w-4xl mx-auto px-4 py-8 text-center">
+  <p>
+    &copy; Copyright 2026 &middot;
+    <a href="https://github.com/ntk148v/shibui">shibui-astro</a>
+  </p>
+  
+  </div>
+</footer>

@@ -1,17 +1,13 @@
 ---
-
+import HomeVariant from '../layouts/HomeVariant.astro';
+import github from '../assets/images/github.jpg';
+const date = "2026-05-16"
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<HomeVariant title="home" avatarUrl={github.src} date={date}>
+  <h2 class="text-2xl font-bold text-base">Mateusz Kapusta <br/> Physics/ML @ ASML</h2>
+  My name is Mateusz Kapusta, I am a researcher working in the field of Bayesian inference,
+	which I belive to be a key to driving forward reasearch in physical sciences.
+	Currently I work at ASML as Machine Learning/Optical engineer where I apply various Bayesian
+	methods to solve problems related to the optical column of NXE machines.
+</HomeVariant>

@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const date = "2026-05-16"
+---
+<BaseLayout title="cv" date={date}>
+
+  <p class="mb-8 text-slate-600">Currently I work at the ASML facility in Veldhoven in the D&E department.
+  I am working on the ML-based models for the NXE diagnostic.</p>
+
+  <!-- Experience -->
+  <section class="mb-10">
+    <h2 class="text-xl font-bold border-b border-slate-200 pb-2 mb-6">Experience</h2>
+
+    <div class="space-y-8">
+      <div>
+        <div class="flex justify-between items-start">
+          <strong>ASML – ML/Optical Engineer (intern → full time)</strong>
+          <span class="text-slate-500 text-sm">Oct 2025 – Jun 2026</span>
+        </div>
+        <p class="italic text-slate-500 text-sm mb-2">Veldhoven, NL</p>
+        <ul class="list-disc pl-5 space-y-1 text-sm text-slate-700">
+          <li>Developing hybrid deep learning models for diagnostic of EUV machines.</li>
+          <li>Integrating differentiable physical simulations with deep learning models to solve various inverse problems.</li>
+          <li>Practical implementation of algorithms on various machines, from laptops to 8×H200 nodes.</li>
+          <li>Started as intern, got offered a full time contract position.</li>
+          <li>Main author of two patent proposals.</li>
+          <li><span class="text-slate-500">Languages & Technologies:</span> Python, Torch</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="flex justify-between items-start">
+          <strong>UBS AG – Quantitative Developer intern</strong>
+          <span class="text-slate-500 text-sm">Jul 2025 – Sep 2025</span>
+        </div>
+        <p class="italic text-slate-500 text-sm mb-2">Wroclaw, PL</p>
+        <ul class="list-disc pl-5 space-y-1 text-sm text-slate-700">
+          <li>Working on the proprietary C++ engine used to price Lombard loans.</li>
+          <li>Code optimization leading to 3× speedup and 2× memory saving.</li>
+          <li><span class="text-slate-500">Languages & Technologies:</span> C++, IntelTBB, R, SQL</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="mb-10">
+    <h2 class="text-xl font-bold border-b border-slate-200 pb-2 mb-6">Education</h2>
+    <p class="text-slate-500 text-sm mb-4">University of Warsaw, College of Interdisciplinary Studies</p>
+
+    <div class="space-y-6">
+      <div>
+        <div class="flex justify-between items-start">
+          <strong>MSc – Astrophysics (minor in Computer Science)</strong>
+          <span class="text-slate-500 text-sm">Oct 2023 – Present</span>
+        </div>
+        <ul class="list-disc pl-5 space-y-1 text-sm text-slate-700 mt-2">
+          <li>Specialization: Numerical methods, Computational Fluid Dynamics, High Performance Computing</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="flex justify-between items-start">
+          <strong>BSc – Astrophysics (minor in Computer Science)</strong>
+          <span class="text-slate-500 text-sm">Oct 2020 – Jul 2023</span>
+        </div>
+        <ul class="list-disc pl-5 space-y-1 text-sm text-slate-700 mt-2">
+          <li>Specialization: Machine Learning, Bayesian Modeling, mathematical modeling in natural sciences</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="mb-10">
+    <h2 class="text-xl font-bold border-b border-slate-200 pb-2 mb-6">Skills</h2>
+    <ul class="space-y-2 text-sm text-slate-700">
+      <li><span class="font-bold">Programming languages:</span> Python (Advanced), C/C++ (Advanced), Julia (Advanced), Rust (beginner)</li>
+      <li><span class="font-bold">ML libraries:</span> Jax, Torch, Pyro, PyMC</li>
+      <li><span class="font-bold">Parallel Programming:</span> MPI, OpenMP, IntelTBB, CUDA, RDMA</li>
+    </ul>
+  </section>
+
+  <!-- Outreach -->
+  <section class="mb-10">
+    <h2 class="text-xl font-bold border-b border-slate-200 pb-2 mb-6">Outreach</h2>
+    <ul class="list-disc pl-5 space-y-1 text-sm text-slate-700">
+      <li>Judge at International Olympiad on Astronomy and Astrophysics (IOAA) 2023</li>
+      <li>Judge at Math Naboj competition 2023/2024/2025</li>
+    </ul>
+  </section>
+
+  <!-- Awards -->
+  <section class="mb-10">
+    <h2 class="text-xl font-bold border-b border-slate-200 pb-2 mb-6">Awards</h2>
+    <ul class="list-disc pl-5 space-y-1 text-sm text-slate-700">
+      <li>University Physics Competition – part of gold-medal winning team representing Faculty of Physics</li>
+      <li>Prize for scientific research granted by the Minister of Education 2025</li>
+      <li>Global e-Competition on Astronomy and Astrophysics (IOAA during pandemic) – Silver medal</li>
+      <li>13th International Olympiad on Astronomy and Astrophysics (IOAA) – Bronze medal</li>
+      <li>70th Polish Math Olympiad – finalist</li>
+      <li>69th Polish Physics Olympiad – 10th place</li>
+      <li>67th Polish Physics Olympiad – finalist</li>
+      <li>62nd & 61st Polish Astronomical Olympiad – first-prize winner</li>
+      <li>60th Polish Astronomical Olympiad – finalist</li>
+    </ul>
+  </section>
+
+</BaseLayout>

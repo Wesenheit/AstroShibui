@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+const date = "2026-05-16"
+const pubs = await getCollection('publications');
+const byCategory = pubs.reduce((acc, p) => {
+  const cat = p.data.category;
+  acc[cat] = [...(acc[cat] || []), p.data];
+  return acc;
+}, {});
+const categoryOrder = ['Machine Learning','Astrophysics'];
+
+const sorted = categoryOrder
+  .filter(cat => byCategory[cat])
+  .map(cat => [cat, byCategory[cat].sort((a, b) => b.year - a.year)])
+---
+
+<BaseLayout title="publications" date={date} headerSubtitle="Publications">
+
+  {sorted.map(([category, items]) => (
+  <section class="mb-10">
+    <h2 class="text-xl font-bold border-b border-slate-200 pb-2 mb-6">{category}</h2>
+    <ol class="space-y-6">
+      {items.map(pub => (
+        <li class="flex gap-3">
+          <span class="text-slate-400 select-none">—</span>
+          <div class="space-y-1">
+            <p><em>{pub.title}</em></p>
+            <p class="text-slate-600 text-sm">
+              {pub.authors.map((a, i) => (
+              <>
+                {a === 'M.Kapusta' ? <strong>{a}</strong> : <span>{a}</span>}
+                {i < pub.authors.length - 1 && ', '}
+              </>
+              ))}
+            </p>
+            <p class="text-slate-600 text-sm">{pub.venue} ({pub.year})</p>
+            <p class="text-sm space-x-3">
+              {pub.arxiv && <a href={`https://arxiv.org/abs/${pub.arxiv}`} class="hover:underline text-slate-500">[arXiv:{pub.arxiv}]</a>}
+              {pub.doi && <a href={`https://doi.org/${pub.doi}`} class="hover:underline text-slate-500">[doi:{pub.doi}]</a>}
+            </p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+))}
+</BaseLayout>

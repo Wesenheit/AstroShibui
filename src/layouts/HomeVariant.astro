@@ -1,0 +1,47 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  date:string;
+  avatarUrl: string;
+}
+
+const { title,date, avatarUrl } = Astro.props;
+const github = 'wesenheit';
+const tangled = 'mrkap.eu';
+const email = 'mr.kapusta@student.uw.edu.pl';
+---
+<BaseLayout title={title} headerSubtitle="Home" date={date}>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+    <!-- Left Column: Photo & Details -->
+    <div class="space-y-4">
+      <img src={avatarUrl} alt="Profile headshot" class="w-full aspect-square object-cover rounded-lg border border-slate-200" />
+      <div class="space-y-1 text-sm">
+  
+  <p class="font-bold mt-4">[code]</p>
+  
+  <p>
+    GitHub: <a href={`https://github.com/${github}`} target="_blank" class="hover:underline">{github}</a>
+  </p>
+  <p>
+    Tangled: <a href={`https://tangled.org/${tangled}`} target="_blank" class="hover:underline">{tangled}</a>
+  </p>
+
+  <p class="font-bold mt-4">[contact]</p>
+
+  <p>
+    Email: <a href="mailto:${email}" class="hover:underline">{email}</a>
+  </p>
+  <p>
+    LinkedIn: <a href="https://www.linkedin.com/in/mateusz-kapusta-573489223/" target="_blank" class="hover:underline">Me</a>
+  </p>
+
+</div>
+    </div>
+    
+    <div class="md:col-span-2 space-y-6">
+      <slot />
+    </div>
+  </div>
+</BaseLayout>
