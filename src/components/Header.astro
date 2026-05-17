@@ -1,19 +1,20 @@
 ---
 interface Props {
   title?: string;
+  suptitle?: string;
 }
-const { title = "" } = Astro.props;
+const { title = "", suptitle = "" } = Astro.props;
 ---
 <header class="border-b border-slate-200">
   <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
     <div>
-      <a href="/" class="text-xl font-medium tracking-tight">/wesenheit/{title}</a>
+      <a href="/" class="text-xl font-medium tracking-tight">{`/wesenheit${suptitle ? `/${suptitle}` : ''}/${title}`}</a>
     </div>
     <nav class="space-x-4 text-sm">
       <a href="/research" class="hover:underline">Research</a>
       <a href="/publications" class="hover:underline">Publications</a>
       <a href="/cv" class="hover:underline">CV</a>
-      <a href="/blog" class="hover:underline">Notes</a>
+      <a href="/notes" class="hover:underline">Notes</a>
     </nav>
   </div>
 </header>

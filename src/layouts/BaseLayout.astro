@@ -1,31 +1,30 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import '@fontsource/ibm-plex-mono/400.css';
-import '@fontsource/ibm-plex-mono/700.css';
 import '../styles/global.css';
 
 interface Props {
   title: string;
   date: date;
-  headerSubtitle?: string;
+  suptitle?: string;
 }
-const { title, date,headerSubtitle } = Astro.props;
+const { title, date,suptitle } = Astro.props;
 const formattedDate = date ? date.slice(0, 10) : null;
+const isRoot = Astro.url.pathname === '/';
 ---
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
+    <title>{isRoot ? 'Mateusz Kapusta' : `${title} | Mateusz Kapusta`}</title>
   </head>
   <body class="bg-white text-slate-900 font-mono selection:bg-slate-200">
-    <Header title={title} />
+    <Header title={title} suptitle={suptitle} head/>
     
     <main class="max-w-2xl mx-auto px-4 py-8">
       <slot /> <!-- Variant content injection point -->
-      <p class="text-base text-slate-400 mt-12">{formattedDate}</p>
+      <p class="text-base font-extralight mt-12">{formattedDate}</p>
     </main>
     <Footer />
   </body>

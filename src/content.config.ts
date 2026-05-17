@@ -14,4 +14,11 @@ const publications = defineCollection({
   }),
 });
 
-export const collections = { publications };
+const blog = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    date: z.date(),
+  }),
+});
+
+export const collections = { blog, publications};
