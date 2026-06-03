@@ -12,36 +12,59 @@ const github = 'wesenheit';
 const tangled = 'mrkap.eu';
 const email = 'mr.kapusta@student.uw.edu.pl';
 ---
-<BaseLayout title={title} date={date}>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-    <!-- Left Column: Photo & Details -->
-    <div class="space-y-4">
-      <img src={avatarUrl} alt="Profile headshot" class="w-full aspect-square object-cover rounded-lg border border-slate-200" />
-      <div class="space-y-1 text-sm">
-  
-  <p class="font-bold mt-4">[code]</p>
-  
-  <p>
-    GitHub: <a href={`https://github.com/${github}`} target="_blank" class="hover:underline">{github}</a>
-  </p>
-  <p>
-    Tangled: <a href={`https://tangled.org/${tangled}`} target="_blank" class="hover:underline">{tangled}</a>
-  </p>
+<BaseLayout title={title} date={date} showHeader={false}>
+  <div class="flex justify-center">
+    <div class="max-w-sm w-full">
 
-  <p class="font-bold mt-4">[contact]</p>
+      <!-- Header -->
+      <div class="mb-8">
+        <h1 class="text-2xl font-bold font-mono">mateusz kapusta</h1>
+        <p class="text-sm font-mono">Machine Learning & Physics @ ASML</p>
+        <hr class="mt-4 border-t-2 border-slate-800" />
+      </div>
 
-  <p>
-    Email: <a href={`mailto:${email}`} class="hover:underline">mr.kapusta</a>
-  </p>
-  <p>
-    LinkedIn: <a href="https://www.linkedin.com/in/mateusz-kapusta-573489223/" target="_blank" class="hover:underline">Me</a>
-  </p>
+      <!-- Columns -->
+      <div class="flex flex-col md:flex-row gap-8 items-start">
+        
+        <!-- Left: Image -->
+        <div class="w-full md:w-48 shrink-0">
+          <img 
+            src={avatarUrl} 
+            alt="Profile headshot" 
+            class="w-full aspect-square object-cover border border-slate-200" 
+          />
+        </div>
 
-</div>
-    </div>
-    
-    <div class="md:col-span-2 space-y-6">
-      <slot />
+        <!-- Right: Links -->
+        <div class="space-y-1 text-sm text-right ml-auto">
+          <p class="font-bold">[code]</p>
+          <p>
+            GitHub: <a href={`https://github.com/${github}`} target="_blank" class="hover:underline">{github}</a>
+          </p>
+          <p>
+            Tangled: <a href={`https://tangled.org/${tangled}`} target="_blank" class="hover:underline">{tangled}</a>
+          </p>
+          <p class="font-bold mt-4">[contact]</p>
+          <p>
+            Email: <a href={`mailto:${email}`} class="hover:underline">mr.kapusta</a>
+          </p>
+          <p>
+            LinkedIn: <a href="https://www.linkedin.com/in/mateusz-kapusta-573489223/" target="_blank" class="hover:underline">Me</a>
+          </p>
+        </div>
+
+      </div>
+      <div class="mb-8">
+        <hr class="mt-4 border-t-2 border-slate-800 " />
+        <div class="mt-2" />
+        <nav class="space-x-4 text-m font-medium flex justify-center">
+          <a href="/about" class="hover:underline">[about]</a>
+          <a href="/research" class="hover:underline">[research]</a>
+          <a href="/publications" class="hover:underline">[papers]</a>
+          <a href="/cv" class="hover:underline">[cv]</a>
+          <a href="/notes" class="hover:underline">[notes]</a>
+        </nav>
+      </div>
     </div>
   </div>
 </BaseLayout>

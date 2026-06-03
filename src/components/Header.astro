@@ -8,13 +8,14 @@ const { title = "", suptitle = "" } = Astro.props;
 <header class="border-b border-slate-200">
   <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
     <div>
-      <a href="/" class="text-base font-thin tracking-tight">{`/wesenheit${suptitle ? `/${suptitle}` : ''}/${title}`}</a>
+      <a href="/" class="text-base font-medium tracking-tight">{`/wesenheit${suptitle ? `/${suptitle}` : ''}/${title}`}</a>
     </div>
-    <nav class="space-x-4 text-sm font-thin">
-      <a href="/research" class="hover:underline">Research</a>
-      <a href="/publications" class="hover:underline">Publications</a>
-      <a href="/cv" class="hover:underline">CV</a>
-      <a href="/notes" class="hover:underline">Notes</a>
+    <nav class="space-x-4 text-sm font-medium">
+      <a href="/about" class="hover:underline">[about]</a>
+      <a href="/research" class="hover:underline">[research]</a>
+      <a href="/publications" class="hover:underline">[papers]</a>
+      <a href="/cv" class="hover:underline">[cv]</a>
+      <a href="/notes" class="hover:underline">[notes]</a>
     </nav>
   </div>
 </header>

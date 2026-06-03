@@ -15,7 +15,7 @@ const sorted = categoryOrder
   .map(cat => [cat, byCategory[cat].sort((a, b) => b.year - a.year)])
 ---
 
-<BaseLayout title="publications" date={date} headerSubtitle="Publications">
+<BaseLayout title="papers" date={date} headerSubtitle="papers">
 
   {sorted.map(([category, items]) => (
   <section class="mb-10">

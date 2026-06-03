@@ -7,8 +7,9 @@ interface Props {
   title: string;
   date: date;
   suptitle?: string;
+  showHeader?: boolean;
 }
-const { title, date,suptitle } = Astro.props;
+const { title, date,suptitle,showHeader = true } = Astro.props;
 const formattedDate = date ? date.slice(0, 10) : null;
 const isRoot = Astro.url.pathname === '/';
 ---
@@ -20,7 +21,7 @@ const isRoot = Astro.url.pathname === '/';
     <title>{isRoot ? 'Mateusz Kapusta' : `${title} | Mateusz Kapusta`}</title>
   </head>
   <body class="bg-white text-slate-900 font-mono selection:bg-slate-200">
-    <Header title={title} suptitle={suptitle} head/>
+    {showHeader && <Header title={title} suptitle={suptitle} head/>}
     
     <main class="max-w-2xl mx-auto px-4 py-8">
       <slot /> <!-- Variant content injection point -->
