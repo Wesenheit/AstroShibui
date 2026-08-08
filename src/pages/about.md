@@ -1,11 +1,11 @@
 ---
 layout: ../layouts/TextVariant.astro
 title: about
-date: 2026-07-12
+date: 2026-08-08
 ---
  ## hi!
 
-My name is Mateusz, I am a PhD student at the ELLIS institute in Tubingen. I am specializing in probabilistic
+My name is Mateusz, I am a PhD student at the ELLIS Tubingen/MPI-IS. I am specializing in probabilistic
 inference for physical systems.
 
 Previously I was employed at the ASML facility at Veldhoven where I was working on  various (bayesian) tools for the diagnostics
