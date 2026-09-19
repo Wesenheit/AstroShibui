@@ -1,70 +1,118 @@
 ---
-import BaseLayout from './BaseLayout.astro';
+import BaseLayout from "./BaseLayout.astro";
 
 interface Props {
-  title: string;
-  date:string;
-  avatarUrl: string;
+    title: string;
+    date: string;
+    avatarUrl: string;
 }
 
-const { title,date, avatarUrl } = Astro.props;
-const github = 'wesenheit';
-const tangled = 'mrkap.eu';
-const email = 'mateusz.kapusta@tuebingen.mpg.de';
+const { title, date, avatarUrl } = Astro.props;
+const github = "wesenheit";
+const tangled = "mrkap.eu";
+const email = "mateusz.kapusta@tuebingen.mpg.de";
 ---
+
 <BaseLayout title={title} date={date} showHeader={false}>
-  <div class="flex justify-center">
-    <div class="max-w-sm w-full">
+    <div class="flex justify-center">
+        <div class="max-w-md w-full">
+            <!-- Header -->
+            <div class="mb-8">
+                <h1 class="text-2xl font-bold font-mono">mateusz kapusta</h1>
+                <p class="text-sm font-mono">
+                    PhD student in CS/ML @ ELLIS/MPI-IS
+                </p>
+                <hr class="mt-4 border-t-2 border-slate-800" />
+            </div>
 
-      <!-- Header -->
-      <div class="mb-8">
-        <h1 class="text-2xl font-bold font-mono">mateusz kapusta</h1>
-        <p class="text-sm font-mono">PhD in CS/ML @ ELLIS/MPI-IS</p>
-        <hr class="mt-4 border-t-2 border-slate-800" />
-      </div>
+            <!-- Columns -->
+            <div class="flex flex-col md:flex-row gap-8 items-start">
+                <!-- Left: Image -->
+                <div class="w-full md:flex-[4] min-w-0">
+                    <img
+                        src={avatarUrl}
+                        alt="Profile headshot"
+                        class="w-full aspect-square object-cover border border-slate-200"
+                    />
+                </div>
 
-      <!-- Columns -->
-      <div class="flex flex-col md:flex-row gap-8 items-start">
-        
-        <!-- Left: Image -->
-        <div class="w-full md:w-48 shrink-0">
-          <img 
-            src={avatarUrl} 
-            alt="Profile headshot" 
-            class="w-full aspect-square object-cover border border-slate-200" 
-          />
+                <!-- Right: Links -->
+                <div class="w-full md:flex-[3] min-w-0 space-y-1 text-sm text-right">
+                    <div class="flex items-stretch gap-2 font-mono">
+                        <!-- left bracket -->
+                        <div class="w-2 border-y-2 border-l-2 border-slate-800"></div>
+
+                        <div class="py-1 text-center text-xs">
+                            <p>
+                                ML & Physics: deep generative models,
+                                probabilistic inference, HPC
+                            </p>
+                        </div>
+
+                        <!-- right bracket -->
+                        <div class="w-2 border-y-2 border-r-2 border-slate-800"></div>
+                    </div>
+                    <p class="font-bold">[code]</p>
+                    <p>
+                        GitHub:{" "}
+                        <a
+                            href={`https://github.com/${github}`}
+                            target="_blank"
+                            class="hover:underline"
+                        >
+                            {github}
+                        </a>
+                    </p>
+                    <p>
+                        Tangled:{" "}
+                        <a
+                            href={`https://tangled.org/${tangled}`}
+                            target="_blank"
+                            class="hover:underline"
+                        >
+                            {tangled}
+                        </a>
+                    </p>
+                    <p class="font-bold mt-4">[contact]</p>
+                    <p>
+                        Email:{" "}
+                        <a href={`mailto:${email}`} class="hover:underline">
+                            mkapusta
+                        </a>
+                    </p>
+                    <p>
+                        LinkedIn:{" "}
+                        <a
+                            href="https://www.linkedin.com/in/mateusz-kapusta-573489223/"
+                            target="_blank"
+                            class="hover:underline"
+                        >
+                            Me
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="mb-8">
+                <hr class="mt-4 border-t-2 border-slate-800" />
+                <div class="mt-2" />
+                <nav class="space-x-4 text-m font-medium flex justify-center">
+                    <a href="/about" class="hover:underline">
+                        [about]
+                    </a>
+                    <a href="/publications" class="hover:underline">
+                        [papers]
+                    </a>
+                    <a href="/cv" class="hover:underline">
+                        [cv]
+                    </a>
+                    <a href="/code" class="hover:underline">
+                        [code]
+                    </a>
+                    <a href="/notes" class="hover:underline">
+                        [notes]
+                    </a>
+                </nav>
+            </div>
         </div>
-
-        <!-- Right: Links -->
-        <div class="space-y-1 text-sm text-right ml-auto">
-          <p class="font-bold">[code]</p>
-          <p>
-            GitHub: <a href={`https://github.com/${github}`} target="_blank" class="hover:underline">{github}</a>
-          </p>
-          <p>
-            Tangled: <a href={`https://tangled.org/${tangled}`} target="_blank" class="hover:underline">{tangled}</a>
-          </p>
-          <p class="font-bold mt-4">[contact]</p>
-          <p>
-            Email: <a href={`mailto:${email}`} class="hover:underline">mkapusta</a>
-          </p>
-          <p>
-            LinkedIn: <a href="https://www.linkedin.com/in/mateusz-kapusta-573489223/" target="_blank" class="hover:underline">Me</a>
-          </p>
-        </div>
-
-      </div>
-      <div class="mb-8">
-        <hr class="mt-4 border-t-2 border-slate-800 " />
-        <div class="mt-2" />
-        <nav class="space-x-4 text-m font-medium flex justify-center">
-          <a href="/about" class="hover:underline">[about]</a>
-          <a href="/research" class="hover:underline">[research]</a>
-          <a href="/publications" class="hover:underline">[papers]</a>
-          <a href="/cv" class="hover:underline">[cv]</a>
-          <a href="/notes" class="hover:underline">[notes]</a>
-        </nav>
-      </div>
     </div>
-  </div>
 </BaseLayout>
