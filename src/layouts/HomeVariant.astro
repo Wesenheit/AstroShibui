@@ -11,6 +11,7 @@ const { title, date, avatarUrl } = Astro.props;
 const github = "wesenheit";
 const tangled = "mrkap.eu";
 const email = "mateusz.kapusta@tuebingen.mpg.de";
+const topics = ["Generative modeling", "Bayesian inference", "HPC"];
 ---
 
 <BaseLayout title={title} date={date} showHeader={false}>
@@ -38,20 +39,18 @@ const email = "mateusz.kapusta@tuebingen.mpg.de";
 
                 <!-- Right: Links -->
                 <div class="w-full md:flex-[3] min-w-0 space-y-1 text-sm text-right">
-                    <div class="flex items-stretch gap-2 font-mono">
-                        <!-- left bracket -->
-                        <div class="w-2 border-y-2 border-l-2 border-slate-800"></div>
+                    <div class="py-1 text-right text-xs"></div>
+                    <ul>
+                        {topics.map((t) => (
+                            <li>{t}</li>
+                        ))}
+                    </ul>
 
-                        <div class="py-1 text-center text-xs">
-                            <p>
-                                ML & Physics: deep generative models,
-                                probabilistic inference, HPC
-                            </p>
-                        </div>
-
-                        <!-- right bracket -->
-                        <div class="w-2 border-y-2 border-r-2 border-slate-800"></div>
-                    </div>
+                    <style>
+                        li::marker {
+                            content: "> ";
+                        }
+                    </style>
                     <p class="font-bold">[code]</p>
                     <p>
                         GitHub:{" "}
